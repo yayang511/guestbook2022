@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>姓名</h2>
+  {{ message.user }}<BR>
+  <h2>主旨</h2>
+  {{ message.subject }}<BR>
+  <h2>內容</h2>
+  {{ message.content|linebreaks }}<BR>
+
+  {% if user.is_authenticated %}
+  <a href="{% url 'msg_delete' message.id %}">刪除</a>
+  {% endif %}
+{% endblock %}
